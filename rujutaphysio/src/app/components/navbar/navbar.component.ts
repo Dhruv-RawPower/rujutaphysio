@@ -1,5 +1,8 @@
+import { Component } from '@angular/core';
+import { AfterViewInit,  ElementRef,  Inject, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, Component,  ElementRef,  Inject, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 
 
 export interface MenuItem {
@@ -15,19 +18,33 @@ export interface MenuItem {
 }
 
 
-
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit,AfterViewInit  {
 
-  
+
+
+
+export class NavbarComponent implements OnInit,AfterViewInit  {
+  constructor(private breakpointObserver: BreakpointObserver) { }
+  isTabletOrMobile: boolean = false;
+
+
+  ngOnInit(): void {
+    this.breakpointObserver.observe([Breakpoints.Tablet, Breakpoints.Handset]).subscribe(result => {
+      this.isTabletOrMobile = result.matches;
+    });
+    
+  }
+  ngAfterViewInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
   menuItems: MenuItem[] = [
-    {
-      label: 'Sign Up',
+    /*{
+      label: 'Sign Upasadasdasd',
       icon: 'login',
       showOnMobile: true,
       showOnTablet: true,
@@ -36,11 +53,22 @@ export class NavbarComponent implements OnInit,AfterViewInit  {
       logged: true,
       function: '',
       id: "sign" 
+    },*/
+    {
+      label: 'Home',
+      icon: 'notes',
+      showOnMobile: true,
+      showOnTablet: true,
+      showOnDesktop: true,
+      path: "home",
+      logged: true,
+      function: '',
+      id: "home" 
     },
     {
-      label: 'About',
+      label: 'About Us',
       icon: 'help',
-      showOnMobile: false,
+      showOnMobile: true,
       showOnTablet: true,
       showOnDesktop: true,
       path:"about",
@@ -49,87 +77,19 @@ export class NavbarComponent implements OnInit,AfterViewInit  {
       id: "about" 
     },
     {
-      label: 'Tickets',
-      icon: 'attach_money',
-      showOnMobile: false,
-      showOnTablet: false,
-      showOnDesktop: true,
-      path:"tickets",
-      logged: true,
-      function: '',
-      id: "ticket" 
-    },
-    {
-      label: 'Dashboard',
-      icon: 'notes',
-      showOnMobile: false,
-      showOnTablet: true,
-      showOnDesktop: true,
-      path: "dashboard",
-      logged: true,
-      function: '',
-      id: "dashboard" 
-    },
-    {
-      label: 'Showcase',
-      icon: 'slideshow',
-      showOnMobile: false,
-      showOnTablet: false,
-      showOnDesktop: true,
-      path : "showcase",
-      logged: true,
-      function: '',
-      id: "showcase" 
-    },
-    {
-      label: 'Blog',
-      icon: 'rss_feed',
-      showOnMobile: false,
-      showOnTablet: false,
-      showOnDesktop: false,
-      path:"",
-      logged: true,
-      function: '',
-      id: "blog" 
-    },
-    
-  ];
-
- /*{
-      label: 'Logout',
-      icon: 'lock',
+      label: 'Treatments and Booking',
+      icon: 'medication',
       showOnMobile: true,
       showOnTablet: true,
       showOnDesktop: true,
-      path: "",
+      path:"treatments",
       logged: true,
-      function: 'logoutUser()'  
-    },*/
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    ngAfterViewInit(): void {
+      function: '',
+      id: "treatments" 
+    }
     
     
-  }
-    
-  ngOnInit(): void {
-    
+  ];
 
-  }
-  
-  
-
-
-
-  
-       
 
 }

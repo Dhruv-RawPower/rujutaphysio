@@ -3,15 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { TreatmentsComponent } from './components/treatments/treatments.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { TreatmentsComponent } from './components/treatments/treatments.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { HomeComponent } from './components/home/home.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -22,7 +19,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatDividerModule} from '@angular/material/divider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 
@@ -30,15 +27,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [
     AppComponent,
     HomeComponent,
+    NavbarComponent,
     TreatmentsComponent,
-    ContactComponent,
-    NavbarComponent
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,,
-    FormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
 
+    BrowserModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,

@@ -1,1 +1,47 @@
-<p>treatments works!</p>
+    
+ 
+ 
+<div class="container">
+  <div class="grid-item" *ngFor="let tile of eventsTile">
+    <div class="image-container">
+      <img class="imageSize" [src]="tile.image" alt="Image Header">
+    </div>
+    <div class="content">
+      <h6 class="title">{{ tile.name }}</h6>
+      <p class="description">{{ tile.info }}</p>
+      <h6 class="price">{{tile.time1}} : {{tile.price1}}</h6>
+      <h6 class="price">{{tile.time2}} : {{tile.price2}}</h6>
+      <h6 class="price">{{tile.time3}} : {{tile.price3}}</h6>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+ 
+ <!--
+ <mat-grid-list  [cols]= "3" rowHeight="40vh">
+     
+     
+     <mat-grid-tile  class="firstCol"
+         *ngFor="let tile of eventsTile"
+         [colspan]="tile.cols"
+         [rowspan]="tile.rows"
+         [style.background]="tile.color"
+         (click)='getTicket(tile.id)'>
+         
+     <mat-grid-tile-header>
+             <h3>{{tile.name}}</h3>
+     </mat-grid-tile-header>    
+     <img src="{{tile.image}}" class = "imageSize" alt="Image not found">  
+     <mat-grid-tile-footer>
+     <pre>{{tile.date}}
+ {{tile.location}}</pre>
+     </mat-grid-tile-footer>    
+     
+     </mat-grid-tile>
+     
+ </mat-grid-list>
+-->

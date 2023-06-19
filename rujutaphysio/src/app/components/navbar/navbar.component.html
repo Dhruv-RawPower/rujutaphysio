@@ -1,21 +1,14 @@
-<!-- <div>
-  <mat-toolbar>
-  <a mat-icon-button routerLink="/"><img src="/assets/images/SSMlogo.png" class="navbarImage">SSM</a>
-  <a mat-icon-button routerLink="tickets" class = "fire" >Tickets</a>-->
- <!-- <span class="example-spacer"></span>
-  <a *ngIf="!loggedIn" mat-icon-button routerLink="login">Login</a>
-  <a *ngIf="loggedIn" mat-icon-button>User</a>
-  <a *ngIf="loggedIn"  class = "fire"    (click)="logoutUser()" mat-icon-button>Logout</a>
- </mat-toolbar>
-</div>-->
-
-
-<!--TEMP-->
-
-
 <mat-toolbar fxLayout="row" color="primary">
-    <span fxFlex routerLink="/"><img src="/assets/images/SSMlogo.png" class="navbarImage">Seven Strings Music</span>
-    <ng-container *ngFor="let item of menuItems">
+    
+    
+        <a routerLink = "/home">
+        <img src="/assets/images/RMPLogo.png" class="navbarImage">
+        </a>
+        <span  fxFlex  routerLink="/home">Rujuta Malshe Physiotherapy</span>
+        
+
+     <ng-container *ngIf="!isTabletOrMobile">   
+      <ng-container  *ngFor="let item of menuItems">
       <button mat-button  
         id = "{{item.id}}"
         *ngIf = "item.logged"
@@ -23,33 +16,37 @@
         [fxShow.xs]="item.showOnMobile"
         [fxShow.sm]="item.showOnTablet"
         routerLink="{{item.path}}"
-        class="mr fire"
+        class="mr fire "
         (click)="item.function">
         <mat-icon>{{item.icon}}</mat-icon>
         {{item.label}}
     </button>
     </ng-container>
-    
-    <button #logout mat-button  
-        
-        *ngIf = "loggedIn"
-        [fxShow]="true" 
-        [fxShow.xs]="false"
-        [fxShow.sm]="false"
-        class="mr fire"
-        (click)="logoutUser()">
-        <mat-icon>lock</mat-icon>
-        Logout
-    </button>
-   
+    </ng-container>     
   
   
-  
-  
-  
+    <ng-container *ngIf="isTabletOrMobile">
     <ng-container>
         <button mat-icon-button [matMenuTriggerFor]="dropMenu">
-            <mat-icon>more_vert</mat-icon>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #dropMenu="matMenu">
+          <ng-container *ngFor="let item of menuItems">
+            <div [fxShow]="item.showOnTablet || item.showOnMobile">
+              <button mat-menu-item>
+                <mat-icon class="mr fire" routerLink="{{item.path}}">{{item.icon}}</mat-icon>
+                {{item.label}}
+              </button>
+              <mat-divider></mat-divider>
+            </div>
+          </ng-container>
+        </mat-menu>
+      </ng-container>
+    </ng-container>
+    <!--
+            <ng-container *ngIf="isTabletOrMobile">
+        <button mat-icon-button [matMenuTriggerFor]="dropMenu">
+            <mat-icon>menu</mat-icon>
         </button>
         <mat-menu #dropMenu="matMenu">
             <ng-container *ngFor="let item of menuItems">
@@ -65,4 +62,6 @@
             </ng-container>
         </mat-menu>
     </ng-container>
-  </mat-toolbar>
+-->
+    </mat-toolbar>
+  
