@@ -20,6 +20,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatDividerModule} from '@angular/material/divider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+
 
 
 
@@ -29,7 +32,8 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     HomeComponent,
     NavbarComponent,
     TreatmentsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
