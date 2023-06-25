@@ -5,6 +5,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TreatmentsComponent } from './components/treatments/treatments.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { CommonModule } from '@angular/common';
+import { BookingComponent } from './components/booking/booking.component';
 
 const routes : Routes =[
   {
@@ -22,6 +23,11 @@ const routes : Routes =[
     component:TreatmentsComponent,
     pathMatch:"full"
   },
+  {
+    path:"booking",
+    component:BookingComponent,
+    pathMatch:"full"
+  }
 ]
 
 

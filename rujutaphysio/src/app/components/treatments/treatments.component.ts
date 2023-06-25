@@ -65,7 +65,10 @@ export class TreatmentsComponent implements OnInit {
   calcGridColumns(){
     return 4;
   }
-  
+  onClickButton() {
+    console.log("in button");
+    this.router.navigate(['booking']); // Replace 'another-component' with the actual route path of the component you want to open
+  }
   getTicket(a: any){
     console.log(a);
     this.router.navigate(['eventDetails']);

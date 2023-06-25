@@ -21,6 +21,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BookingComponent } from './components/booking/booking.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -33,7 +35,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     TreatmentsComponent,
     AboutUsComponent,
-    FooterComponent
+    FooterComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +57,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatMenuModule,
     FlexLayoutModule,
     MatDividerModule,
-    FontAwesomeModule
-
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

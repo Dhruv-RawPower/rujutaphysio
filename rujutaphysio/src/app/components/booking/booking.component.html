@@ -1,0 +1,40 @@
+
+<div class = "container">
+    
+    <ng-container *ngIf="!showPaymentButtons">
+    <div>
+        <h1>Booking Details for Aromatherapy</h1>
+    </div>
+    <div class="form-class">
+    <form [formGroup]="bookingForm" (ngSubmit)="onFormSubmit()">
+        <p>Please select the duration of treatment</p>
+      <div class="form-elements"> 
+      <input type="radio" id="duration" name="duration" value="25" formControlName="duration">
+      <label for="half">30 Minutes</label><br>
+      <input type="radio" id="duration" name="duration" value="35" formControlName="duration">
+      <label for="threeQuarter">45 Minutes</label><br>
+      <input type="radio" id="duration" name="duration" value="45" formControlName="duration">
+      <label for="hour">50 Minutes</label> 
+      </div>
+      <div class="form-elements">  
+      <p>Please select the date of treatment</p>
+      <input type="date" id="date" name="date" formControlName="date">
+      <label for = "date"></label>
+      </div>
+      <p>Grand Total: <input type="text" id="total" name="total" value="{{ bookingForm.value.duration }} " formControlName="total" > </p>
+      <button mat-raised-button	color="primary" type="submit">Go To Payments</button>
+    </form>
+    </div>
+    </ng-container>
+
+    <div *ngIf="showPaymentButtons">
+        <div>
+            <h1>Select your payment type!</h1>
+            <p>Grand Total:  {{ bookingForm.value.duration }} GBP</p>
+        </div>
+        <div id="paypal-button-container"></div>
+    </div>
+    
+</div>
+
+
