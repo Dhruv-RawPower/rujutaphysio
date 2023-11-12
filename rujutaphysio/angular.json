@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "rujutaphysio:build:production"
+              "buildTarget": "rujutaphysio:build:production"
             },
             "development": {
-              "browserTarget": "rujutaphysio:build:development"
+              "buildTarget": "rujutaphysio:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rujutaphysio:build"
+            "buildTarget": "rujutaphysio:build"
           }
         },
         "test": {
