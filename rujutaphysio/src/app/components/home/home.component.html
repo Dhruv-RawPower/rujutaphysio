@@ -3,60 +3,41 @@
   What we do?
 </div>  
 <p class="description">
- We provide various treatments to patients ranging from various massages to advanced physiotherapy treatments from the comfort of their home.
- Currently we only treat female patients.
- To book a treatment, give us a date, time, and a small description about your difficulties so we can advice you the best treatment.
- Click here to book a treatement.
+    At Essence, we're dedicated to enhancing your well-being with a range of specialized treatments, all in the comfort of your own home. Our expert team offers a spectrum of services, from soothing massages to cutting-edge physiotherapy.
+
+    Exclusively for Women.
+    
+    Currently, we cater exclusively to the needs of women. Your comfort and privacy are of utmost importance to us, and our team is committed to providing a safe and supportive environment for your treatment.   
+</p>
+<div class="Header">
+    How to book?
+</div>
+<p class="description">
+    Booking Made Easy
+    
+    Scheduling your session is simple. Just provide us with your preferred date and time, along with a brief description of your specific needs. Our experienced professionals will recommend the most suitable treatment plan for you.
+    
+    Take the first step towards improved health and wellness today. Click here to book your personalized treatment, and let us bring the care you deserve right to your doorstep.
+
 </p> 
 </div>
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+<form  (submit)="onSubmit()"  method="POST">
+    
+    <input type="text" [(ngModel)]="name" name="name" placeholder="Your Name">
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Your Email">
+    <textarea [(ngModel)]="message" name="message" rows="5" cols="30" placeholder="Your Message"></textarea>
+    
+    <input type="hidden" [(ngModel)]="access_key" name="access_key" value="cecae326-e249-46c5-8f70-d161c230ee33">
+    
+    <div class="h-captcha" data-captcha="true"></div>
+    <input value="Submit" type="submit">
+    
+</form>
+<iframe [srcdoc]="sanitizedHtmlResponse" frameborder="0" width="100%" height="400px"></iframe>
 
-<div class="body">
-  
 
 
-  <div class="flower">
-  <div class="f-wrapper">
-      <div class="flower__line"></div>
-      <div class="f">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__leaf flower__leaf--5"></div>
-          <div class="flower__leaf flower__leaf--6"></div>
-          <div class="flower__leaf flower__leaf--7"></div>
-          <div class="flower__leaf flower__leaf--8 flower__fall-down--yellow"></div>
-      </div>
-  </div>
-
-  <div class="f-wrapper f-wrapper--2">
-      <div class="flower__line"></div>
-      <div class="f">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__leaf flower__leaf--5"></div>
-          <div class="flower__leaf flower__leaf--6"></div>
-          <div class="flower__leaf flower__leaf--7"></div>
-          <div class="flower__leaf flower__leaf--8 flower__fall-down--pink"></div>
-      </div>
-  </div>
-
-  <div class="f-wrapper f-wrapper--3">
-      <div class="flower__line"></div>
-      <div class="f">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__leaf flower__leaf--5"></div>
-          <div class="flower__leaf flower__leaf--6"></div>
-          <div class="flower__leaf flower__leaf--7"></div>
-          <div class="flower__leaf flower__leaf--8 flower__fall-down--purple"></div>
-      </div>
-  </div>
-  <div class="flower__glass"></div>
-</div>
-
-</div>
+<script src="https://web3forms.com/client/script.js" async defer></script>

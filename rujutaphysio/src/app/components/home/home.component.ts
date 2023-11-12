@@ -1,22 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  name: string;
-  image: string;
-  imageRef:string;
-  price1: string;
-  price2: string;
-  price3: string;
-  time1:string;
-  time2:string;
-  time3:string;
-  info: string;
-  id:number;
-}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,47 +10,63 @@ export interface Tile {
 })
 export class HomeComponent  implements OnInit {
 
-  constructor(public router: Router) { }
-  
+  constructor(public router: Router,private http: HttpClient,private domSanitizer: DomSanitizer) { }
   ngOnInit(): void {
-        console.log("Events Tile: ",this.eventsTile);
-        this.eventsTile[0] = {id:1, color: 'none', cols: 1, rows: 1, name:"Courage",image:"/assets/images/Courage.png",
-                             imageRef:"Image by cookie_studio on Freepik", price1:"25£", price2: "35£", price3:"45£",time1:"30 min", 
-                             time2:"45 min", time3:"60 min",info:"Courage is not the absence of fear. Courageous people do feel fear, but they are able to manage and overcome their fear so that it does not stop them taking action."
-                             }
-        
-        this.eventsTile[1] = {id:2, color: 'none', cols: 1, rows: 1, name:"Efficiency",image:"/assets/images/Efficiency.png",
-                             imageRef:"Photo by Toa Heftiba on Unsplash", price1:"25£", price2: "35£", price3:"45£",time1:"30 min", 
-                             time2:"45 min", time3:"60 min",info:"Efficiency in the workplace is crucial for productivity. It involves optimizing processes, utilizing resources wisely, and minimizing waste. Efficient teams prioritize tasks, streamline workflows, and adapt to changes swiftly. Embracing technology and fostering a culture of continuous improvement are key to achieving and sustaining workplace efficiency, leading to better results and job satisfaction."
-                             }
-                             
-        this.eventsTile[2] = {id:3, color: 'none', cols: 1, rows: 1, name:"Compassion",image:"/assets/images/Compassion.png",
-                             imageRef:"Photo by Mariana Rascão on Unsplash", price1:"25£", price2: "35£", price3:"45£",time1:"30 min", 
-                             time2:"45 min", time3:"60 min",info:"Compassion at work entails understanding and empathizing with colleagues and clients. It fosters strong relationships, trust, and a supportive environment. Compassionate leaders listen actively, offer assistance, and promote well-being. In the workplace, compassion contributes to a positive atmosphere, increased morale, and better collaboration, ultimately enhancing overall job satisfaction and success."
-                             }
-                   
-        console.log(this.eventsTile);
-        
-      
+    throw new Error('Method not implemented.');
+  }
+  
+  name!: string;
+  email!: string;
+  message!: string;
+  access_key!:string;
 
-    
+  rawHtmlResponse!: string; // This will hold the raw HTML response
+  sanitizedHtmlResponse!: SafeHtml; // This will hold the sanitized HTML content
+  
+  sanitizeHtmlResponse() {
+    this.sanitizedHtmlResponse = this.domSanitizer.bypassSecurityTrustHtml(this.rawHtmlResponse);
+  }
 
+  onSubmit() {
+    // Client-side validation
+    if (!this.name || !this.email || !this.message) {
+      // Display an error message or prevent submission
+      return;
+    }
+  
+    // Prepare the data to send to the server
+    const formData = {
+      name: this.name,
+      email: this.email,
+      message: this.message,
+      access_key:"cecae326-e249-46c5-8f70-d161c230ee33"
+    };
+    // Define the URL of the API
+    const apiUrl = 'https://api.web3forms.com/submit';
+
+    // Define the request headers
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json', // Set the Content-Type header to JSON
+    });
+  
+    // Send a POST request to the server
+    this.http.post(apiUrl, formData, { headers })
+  .subscribe(
+    (response) => {
+      console.log('Request successful:', response);
+
+    // Assuming you have received the HTML response in your HTTP response handling code
+    //this.rawHtmlResponse = response;
+    // Now, sanitize and set it for rendering
+    this.sanitizeHtmlResponse();
+    },
+    (error) => {
+      console.error('Error submitting form:', error);
+    }
+  );
   }
    
-  eventsTile: Tile[] = [];
-
-  calcGridColumns(){
-    return 4;
-  }
-  onClickButton() {
-    console.log("in button");
-    this.router.navigate(['booking']); // Replace 'another-component' with the actual route path of the component you want to open
-  }
-  getTicket(a: any){
-    console.log(a);
-    this.router.navigate(['eventDetails']);
-    
-  }
+  
 
 
 }

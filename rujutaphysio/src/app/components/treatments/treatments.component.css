@@ -1,3 +1,58 @@
+.containerPopUp {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  max-width: 80%;
+  margin-top: 3%;
+  margin-bottom: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3%;
+  align-items: flex-start;
+  border-radius: 25px;
+  border-style: dotted;
+  border-color: #8c0000;
+  background-color: #248664;
+  min-height: 25vh;
+  z-index: 1000; /* Adjust as needed */
+
+}
+
+.popbutton-container {
+  display: flex;
+  justify-content: center;
+  gap: 10%; /* Adjust as needed */
+  margin-top: 5%; /* Adjust as needed */
+}
+
+.popcircle-button,
+.popcancel-button {
+  padding: 10px 20px; /* Adjust as needed */
+  font-size: 16px;
+  background-color: #4eabff;
+  color: white;
+  border-radius: 20%;
+}
+.popcircle-button:hover,
+.popcancel-button:hover{
+  background-color: #00ffff; /* Green */
+  color: black;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+  z-index: 999; /* Make sure it's above other content */
+}
+
+
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -10,6 +65,7 @@
   padding-top: 3%;
   align-items: flex-start;
 }
+
 
 button {
   background-color: rgb(144, 5, 47);
@@ -136,7 +192,7 @@ button {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
-
+                                                                                                                                                                                                                                             
 
 
 
@@ -305,6 +361,46 @@ textPath{
     font-weight: bold;
     
   }
+  .containerPopUp {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    width: 80% !important;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3%;
+    align-items: flex-start;
+    border-radius: 25px;
+    border-style: dotted;
+    border-color: #8c0000;
+    background-color: #248664;
+    min-height: 25vh;
+    z-index: 1000; /* Adjust as needed */
+    
+  }
+  .popUpContent{
+    font-size: 14px !important;
+  }
+  .popbutton-container {
+    display: flex;
+    justify-content: center;
+    gap: 10%; /* Adjust as needed */
+    margin-top: 5%; /* Adjust as needed */
+  }
+  
+  .popcircle-button,
+  .popcancel-button {
+    padding: 10px 20px; /* Adjust as needed */
+    font-size: 14px !important;
+    background-color: #4eabff;
+    color: white;
+    border-radius: 20%;
+  }
 }
 
 @media (min-width: 280px) and (max-width: 320px){
@@ -318,6 +414,119 @@ textPath{
     font-weight: bold;
     
   }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3%;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+  }
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #c3f8fd;
+    margin-bottom: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    max-width: 90%;
+    color: black;
+  }
+
+  .containerPopUp {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    width: 80% !important;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3%;
+    align-items: flex-start;
+    border-radius: 25px;
+    border-style: dotted;
+    border-color: #8c0000;
+    background-color: #248664;
+    min-height: 25vh;
+    z-index: 1000; /* Adjust as needed */
+    
+  }
+  .popUpContent{
+    font-size: 14px !important;
+  }
+  .popbutton-container {
+    display: flex;
+    justify-content: center;
+    gap: 10%; /* Adjust as needed */
+    margin-top: 5%; /* Adjust as needed */
+  }
+  
+  .popcircle-button,
+  .popcancel-button {
+    padding: 10px 20px; /* Adjust as needed */
+    font-size: 14px !important;
+    background-color: #4eabff;
+    color: white;
+    border-radius: 20%;
+  }
+
+
+}
+
+@media screen and (max-width: 430px) {
+
+.containerPopUp {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  width: 80% !important;
+  margin-top: 3%;
+  margin-bottom: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3%;
+  align-items: flex-start;
+  border-radius: 25px;
+  border-style: dotted;
+  border-color: #8c0000;
+  background-color: #248664;
+  min-height: 25vh;
+  z-index: 1000; /* Adjust as needed */
+  
+}
+.popUpContent{
+  font-size: 14px !important;
+}
+.popbutton-container {
+  display: flex;
+  justify-content: center;
+  gap: 10%; /* Adjust as needed */
+  margin-top: 5%; /* Adjust as needed */
+}
+
+.popcircle-button,
+.popcancel-button {
+  padding: 10px 20px; /* Adjust as needed */
+  font-size: 14px !important;
+  background-color: #4eabff;
+  color: white;
+  border-radius: 20%;
+}
 }
 
 @media screen and (max-width: 1368px) {

@@ -53,7 +53,7 @@ export class NavbarComponent implements OnInit,AfterViewInit  {
       logged: true,
       function: '',
       id: "sign" 
-    },*/
+    },
     {
       label: 'Home',
       icon: 'notes',
@@ -64,10 +64,10 @@ export class NavbarComponent implements OnInit,AfterViewInit  {
       logged: true,
       function: '',
       id: "home" 
-    },
+    },*/
     {
-      label: 'About Us',
-      icon: 'help',
+      label: 'Home',
+      icon: 'home',
       showOnMobile: true,
       showOnTablet: true,
       showOnDesktop: true,

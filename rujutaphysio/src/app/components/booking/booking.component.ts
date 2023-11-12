@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl,Validators  } from '@angular/forms';
+import { Router } from '@angular/router';
 
 declare let paypal: any;
 
@@ -11,15 +12,19 @@ declare let paypal: any;
 })
 export class BookingComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) {}
-  showPaymentButtons: boolean = false;
+  constructor(private formBuilder: FormBuilder,private http: HttpClient,public router: Router) {}
+//  showPaymentButtons: boolean = false; //Payment Gateway
 
   orderDetails: any;
   createOrder: any;
   bookingForm: FormGroup | any;
- 
-    
-
+  name!: string;
+  email!: string;
+  message!: string;
+  access_key!:string;
+  total!:string;
+  date!:string;    
+  duration!:string;
  
   ngOnInit() {
     this.bookingForm = this.formBuilder.group({
@@ -36,14 +41,56 @@ export class BookingComponent implements OnInit {
     const day = ('0' + today.getDate()).slice(-2);
     return `${year}-${month}-${day}`;
   }
+  onClickOkButton(){
+    document.location.href = 'https://www.jwpodiatry.co.uk/book-online-1';
+  }
+
+  onClickCancelButton(){
+    this.router.navigate(['treatments']);;
+  }
 
   onFormSubmit() {
     // Handle the form submission
     if (this.bookingForm.valid) {
       console.log('Form submitted is valid:', this.bookingForm.value);
-      this.showPaymentButtons = true;
-    console.log('Form submitted is valid:',  this.showPaymentButtons);
+      if (!this.name || !this.email || !this.message) {
+        // Display an error message or prevent submission
+        console.log('Arrey eh ka hai');
+        return;
+      }
+      // Prepare the data to send to the server
+    const formData = {
+      name: this.name,
+      email: this.email,
+      message: this.message + this.duration + this.date + this.total ,
+      access_key:"cecae326-e249-46c5-8f70-d161c230ee33"
+    };
+    // Define the URL of the API
+    const apiUrl = 'https://api.web3forms.com/submit';
 
+    // Define the request headers
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json', // Set the Content-Type header to JSON
+    });
+  
+    // Send a POST request to the server
+    this.http.post(apiUrl, formData, { headers })
+  .subscribe(
+    (response) => {
+      console.log('Request successful:', response);
+
+    // Assuming you have received the HTML response in your HTTP response handling code
+    //this.rawHtmlResponse = response;
+    // Now, sanitize and set it for rendering
+    },
+    (error) => {
+      console.error('Error submitting form:', error);
+    }
+  );
+
+     // this.showPaymentButtons = true; //Payment Gateway
+    //console.log('Form submitted is valid:',  this.showPaymentButtons);
+    /*  
     setTimeout(() => { 
     
     paypal.Buttons({
@@ -73,7 +120,7 @@ export class BookingComponent implements OnInit {
     }).render('#paypal-button-container');
   },0);
 
-      // Perform further actions with the form data
+     */ // Perform further actions with the form data
     }
   }
   
