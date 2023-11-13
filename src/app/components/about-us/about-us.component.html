@@ -1,0 +1,40 @@
+<div class="container-intro">
+    <span class="image-container-intro">
+        
+        <img class="imageSizeIntro" src="/assets/images/rujuta.jpg" alt="Image Header">
+        
+    </span>
+    <span class="content-intro">
+      I'm Dr. Rujuta Malshe, an accomplished freelance Physiotherapist with a wealth of experience across diverse healthcare domains. With a strong background in musculoskeletal, neurological, cardiovascular, and pediatric physiotherapy, I bring a holistic approach to my freelance practice.
+
+My career has seen me work in intensive care units, outpatient settings, burn units, surgical wards, and oncology departments, providing comprehensive care to patients. I specialize in evidence-based manual therapy techniques for musculoskeletal injuries and excel in empowering patients through education.
+
+I am driven by a commitment to quality, with a proven track record in disability assessment, ergonomics, and patient-centered care. My adaptability, excellent communication skills, and dedication make me an asset in any freelance project.
+
+As a lifelong learner, I stay updated with the latest advancements in physiotherapy, ensuring the highest standards of care for clients. With certifications from esteemed bodies like CSP and HCPC, I guarantee professionalism and ethical practice.
+
+Let's collaborate to promote better health and well-being through freelance physiotherapy services.
+    </span>
+    
+   
+</div>
+
+<div class="Header">
+    Our Values
+</div>   
+<div class="container">
+    <div class="grid-item" *ngFor="let tile of eventsTile">
+      <div class="image-container">
+        <img class="imageSize" [src]="tile.image" alt="Image Header">
+      </div>
+      <div class="content">
+        <h6 class="title">{{ tile.name }}</h6>
+        <div class = "scroll">
+          <p class="description">{{ tile.info }}</p>
+        </div>
+        
+        
+      </div>
+    </div>
+</div>
+  

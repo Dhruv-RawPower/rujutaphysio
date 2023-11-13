@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="grid-item" *ngFor="let tile of eventsTile">
+    <div class="image-container">
+      <img class="imageSize" [src]="tile.image" alt="Image Header">
+    </div>
+    <div class="content">
+      <h6 class="title">{{ tile.name }}</h6>
+      <div class = "scroll">
+        <p class="description">{{ tile.info }}</p>
+      </div>
+      
+      <div class="price-container">
+        <div>
+          <h6 class="price" *ngIf="tile.time1 !== ''">{{tile.time1}} : {{tile.price1}}</h6>
+          <h6 class="price" *ngIf="tile.time2 !== ''">{{tile.time2}} : {{tile.price2}}</h6>
+          <h6 class="price" *ngIf="tile.time3 !== ''">{{tile.time3}} : {{tile.price3}}</h6>
+          <h6 class="price" *ngIf="tile.time4 !== ''">{{tile.time4}} : {{tile.price4}}</h6>
+        </div>
+        <div  id="circle">
+          <button mat-raised-button class="circle-button" (click)="onClickButton()">Book Now!</button>
+        </div>    
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isPopupVisible" class="backdrop" [@fadeInOut]></div>
+<!--
+<div *ngIf="isPopupVisible"  class = "containerPopUp">
+  
+  <ng-container *ngIf="!showPaymentButtons">
+  <div>
+      <h1>You will be redirected to the JWPodiatry website, where you can book the treatment. All payments and bookings will be handled by JWPodiatry. Essence is not responsible for any bookings and payments. Press OK to continue.</h1>
+  </div>
+  <div>
+    <button mat-raised-button class="circle-button" (click)="onClickOkButton()">OK</button>
+  </div>
+  <div>
+  <button mat-raised-button  class="cancel-button" (click)="onClickCancelButton()">Cancel</button>
+  </div>
+</div>
+-->
+<div *ngIf="isPopupVisible" class="containerPopUp">
+  <div>
+    <h1 class="popUpContent">You will be redirected to the JWPodiatry website, where you can book the treatment. All payments and bookings will be handled by JWPodiatry. Essence is not responsible for any bookings and payments. Press OK to continue.</h1>
+  </div>
+  <div class="popbutton-container">
+    <button mat-raised-button class="popcircle-button" (click)="onClickOkButton()">OK</button>
+    <button mat-raised-button class="popcancel-button" (click)="onClickCancelButton()">Cancel</button>
+  </div>
+</div>

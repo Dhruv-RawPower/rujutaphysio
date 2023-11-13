@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+html, body { height: 100%; font-family: Georgia,Times,Times New Roman,serif;margin: 0;
+    padding: 0;  }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: #4eabff;
+    background: -webkit-linear-gradient(to right, #aec3ff, #4eabff);
+    background: linear-gradient(to right, #aec3ff, #4eabff);
+    
+}
+*{
+    font-family: Georgia, serif;
+    
+}
+    
+
