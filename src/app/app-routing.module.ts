@@ -9,7 +9,7 @@ import { BookingComponent } from './components/booking/booking.component';
 
 const routes : Routes =[
   {
-    path:"home",
+    path:"/",
     component:HomeComponent,
     pathMatch:"full"
   },
