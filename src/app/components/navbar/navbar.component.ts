@@ -71,7 +71,7 @@ export class NavbarComponent implements OnInit,AfterViewInit  {
       showOnMobile: true,
       showOnTablet: true,
       showOnDesktop: true,
-      path:"about",
+      path:"home",
       logged: true,
       function: '',
       id: "about" 
