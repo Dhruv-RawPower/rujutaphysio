@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { BookingComponent } from './components/booking/booking.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-
+/*
 const routes : Routes =[
   {
     path:"/",
@@ -36,7 +36,29 @@ const routes : Routes =[
     pathMatch:"full"
   }
 ]
-
+*/
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: AboutUsComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'treatments',
+    component: TreatmentsComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'booking',
+    component: BookingComponent,
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(routes)],
