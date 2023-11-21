@@ -6,6 +6,8 @@ import { TreatmentsComponent } from './components/treatments/treatments.componen
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { CommonModule } from '@angular/common';
 import { BookingComponent } from './components/booking/booking.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 const routes : Routes =[
   {
@@ -38,7 +40,8 @@ const routes : Routes =[
 
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })
 
 
