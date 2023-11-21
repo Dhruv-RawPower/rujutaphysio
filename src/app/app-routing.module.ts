@@ -10,7 +10,7 @@ import { BookingComponent } from './components/booking/booking.component';
 const routes : Routes =[
   {
     path:"/",
-    component:HomeComponent,
+    component:AboutUsComponent,
     pathMatch:"full"
   },
   {
